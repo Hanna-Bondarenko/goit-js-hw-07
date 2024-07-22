@@ -6,16 +6,14 @@ function getRandomHexColor() {
 function createBoxes(amount) {
   const boxesContainer = document.querySelector('#boxes');
   boxesContainer.innerHTML = '';
+  let boxesHTML = '';
   let sizeSquare = 30;
   for (let i = 0; i < amount; i++) {
-    const newBox = document.createElement('div');
-    newBox.style.width = `${sizeSquare}px`;
-    newBox.style.height = `${sizeSquare}px`;
-    newBox.style.backgroundColor = getRandomHexColor();
-    newBox.style.margin = '10px';
-    boxesContainer.appendChild(newBox);
+    const newBoxHTML = `<div style="width: ${sizeSquare}px; height: ${sizeSquare}px; background-color: ${getRandomHexColor()}; margin: 10px;"></div>`;
+    boxesHTML += newBoxHTML;
     sizeSquare += 10;
   }
+  boxesContainer.innerHTML = boxesHTML;
 }
 function destroyBoxes() {
   const boxesContainer = document.querySelector('#boxes');
